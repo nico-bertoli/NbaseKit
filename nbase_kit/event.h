@@ -8,27 +8,19 @@ namespace nbase_kit
     template <typename... Args>
     class Event
     {
-        
     //---------------------------------------------------------- Fields
     private:
-        std::vector< std::function<void(Args...)>> handlers_;
+        std::vector< std::function<void(Args...)>> callbacks_;
 
     //---------------------------------------------------------- Methods
     public:
-        void Subscribe(std::function<void(Args...)> handler)
-        { 
-            handlers_.push_back(handler);
-        }
+        void Subscribe(std::function<void(Args...)> callback) { callbacks_.push_back(callback); }
+        void Clear() { callbacks_.clear(); }
 
         void Notify(Args... args)
         {
-            for (auto& handler : handlers_)
-                handler(args...);
-        }
-
-        void Clear() 
-        { 
-            handlers_.clear();
+            for (auto& callback : callbacks_)
+                callback(args...);
         }
     };
 }

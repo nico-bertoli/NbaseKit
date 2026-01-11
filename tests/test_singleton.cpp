@@ -45,7 +45,7 @@ protected:
     //automatically called before each test case
     void SetUp() override
     {
-        // Reset the singleton state if needed
+        // Reset the state
         SingletonInt::Instance().SetValue(0);
         SingletonString::Instance().SetName("");
     }
