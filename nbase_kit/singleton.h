@@ -1,6 +1,6 @@
 #pragma once
 
-namespace NbaseKit
+namespace nbase_kit
 {
     template <typename T>
     class Singleton

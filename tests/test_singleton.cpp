@@ -1,11 +1,11 @@
 #include <gtest/gtest.h>
-#include <NbaseKit/Singleton.h>
+#include <nbase_kit/singleton.h>
 #include <vector>
 #include <string>
 #include <type_traits>
 
 template<typename T>
-using Singleton = NbaseKit::Singleton<T>;
+using Singleton = nbase_kit::Singleton<T>;
 
 //-------------------------------------------------------- classes
 
@@ -18,9 +18,9 @@ private:
     ~SingletonInt() = default;
 
 public:
-    int value = 0;
-    void SetValue(int v) { value = v; }
-    int GetValue() const { return value; }
+    int value_ = 0;
+    void SetValue(int v) { value_ = v; }
+    int GetValue() const { return value_; }
 };
 
 class SingletonString : public Singleton<SingletonString>
@@ -32,9 +32,9 @@ private:
     ~SingletonString() = default;
 
 public:
-    std::string name;
-    void SetName(const std::string& n) { name = n; }
-    const std::string& GetName() const { return name; }
+    std::string name_;
+    void SetName(const std::string& n) { name_ = n; }
+    const std::string& GetName() const { return name_; }
 };
 
 //-------------------------------------------------------- test class
@@ -107,16 +107,16 @@ TEST_F(SingletonTest, InstancePersistsState)
 TEST_F(SingletonTest, WorksAcrossScopes)
 {
     constexpr int kValueSet = 99;
-    SingletonInt* instance1Ptr = nullptr;
+    SingletonInt* instance1_ptr = nullptr;
     {
         SingletonInt& instance1 = SingletonInt::Instance();
-        instance1Ptr = &instance1;
+        instance1_ptr = &instance1;
         instance1.SetValue(kValueSet);
     }
 
     {
         SingletonInt& instance2 = SingletonInt::Instance();
         EXPECT_EQ(instance2.GetValue(), kValueSet);
-        EXPECT_EQ(instance1Ptr, &instance2); // Same instance reference
+        EXPECT_EQ(instance1_ptr, &instance2); // Same instance reference
     }
 }

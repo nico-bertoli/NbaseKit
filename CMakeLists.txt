@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED YES)  # Fail if c++20 not available
 set(CMAKE_CXX_EXTENSIONS OFF)         # Disable compiler-specific extensions
 
 #----------------------- Library Source Files
-file(GLOB_RECURSE SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/NbaseKit/*.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/NbaseKit/*.h")  # Collect all source files recursively
+file(GLOB_RECURSE SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/nbase_kit/*.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/nbase_kit/*.h")  # Collect all source files recursively
 add_library(${PROJECT_NAME} ${SOURCE_FILES})  # Create library from source files
 target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")  # Make headers available to consumers
 
@@ -47,6 +47,6 @@ set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}")  #
 set(CPACK_OUTPUT_FILE_PREFIX "${CMAKE_SOURCE_DIR}/packages")  # Output directory for packages
 
 #----------------------- Installation Rules
-install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/NbaseKit" DESTINATION .)  # Install library headers and sources
+install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/nbase_kit" DESTINATION .)  # Install library headers and sources
 install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.txt" DESTINATION .)  # Install CMakeLists.txt for consumers
 include(CPack)  # Enable CPack package generation
