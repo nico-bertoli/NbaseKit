@@ -5,8 +5,7 @@
 namespace nbase_kit
 {
     /// <summary>
-    /// Implementation of a 2D vector using monodimensional vector for
-    /// better performance (cache)
+    /// Implementation of a 2D vector using monodimensional vector for cache efficiency
     /// </summary>
     template<typename T>
     class Matrix
@@ -35,7 +34,7 @@ namespace nbase_kit
             width_ = width;
             vector_.resize(width * height);
         }
-        void Clear() { vector_.clear(); }
+        void Clear() { vector_.clear(); width_ = 0; }
 
         const T& Get(size_t x, size_t y) const { return vector_[width_ * y + x]; }
         T& Get(size_t x, size_t y) { return vector_[width_ * y + x]; }
@@ -66,6 +65,8 @@ namespace nbase_kit
             Iterator operator--(int) { Iterator temp = *this; --it_; return temp; }
             Iterator operator+(difference_type n) const { return Iterator(it_ + n); }
             Iterator operator-(difference_type n) const { return Iterator(it_ - n); }
+            Iterator& operator+=(difference_type n) { it_ += n; return *this; }
+            Iterator& operator-=(difference_type n) { it_ -= n; return *this; }
             difference_type operator-(const Iterator& other) const { return it_ - other.it_; }
             bool operator==(const Iterator& other) const { return it_ == other.it_; }
             bool operator!=(const Iterator& other) const { return it_ != other.it_; }
@@ -103,6 +104,8 @@ namespace nbase_kit
             ConstIterator operator--(int) { ConstIterator temp = *this; --it_; return temp; }
             ConstIterator operator+(difference_type n) const { return ConstIterator(it_ + n); }
             ConstIterator operator-(difference_type n) const { return ConstIterator(it_ - n); }
+            ConstIterator& operator+=(difference_type n) { it_ += n; return *this; }
+            ConstIterator& operator-=(difference_type n) { it_ -= n; return *this; }
             difference_type operator-(const ConstIterator& other) const { return it_ - other.it_; }
             bool operator==(const ConstIterator& other) const { return it_ == other.it_; }
             bool operator!=(const ConstIterator& other) const { return it_ != other.it_; }
