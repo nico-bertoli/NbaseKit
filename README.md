@@ -1,6 +1,3 @@
-Common classes library used in all of my C++ projects.
+# nbkit
 
-- Singleton
-- Event
-- Log system
-- Cache friendly matrix
+My base kit, a set of common classes that can be shared across projects.
