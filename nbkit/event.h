@@ -3,7 +3,7 @@
 #include <vector>
 #include <functional>
 
-namespace nbase_kit
+namespace nbkit
 {
     template <typename... Args>
     class Event

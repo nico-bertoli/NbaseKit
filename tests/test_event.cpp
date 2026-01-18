@@ -1,10 +1,10 @@
 #include <gtest/gtest.h>
-#include <nbase_kit/event.h>
+#include <nbkit/event.h>
 #include <iostream>
 #include <string.h>
 
 template<typename... Args>
-using Event = nbase_kit::Event<Args...>;
+using Event = nbkit::Event<Args...>;
 
 class EventTest : public ::testing::Test
 {

@@ -1,11 +1,11 @@
 #include <gtest/gtest.h>
-#include <nbase_kit/matrix.h>
+#include <nbkit/matrix.h>
 #include <vector>
 #include <algorithm>
 #include <numeric>
 
 template<typename T>
-using Matrix = nbase_kit::Matrix<T>;
+using Matrix = nbkit::Matrix<T>;
 
 class MatrixTest : public ::testing::Test
 {

@@ -1,6 +1,6 @@
 #----------------------- CMake Configuration
 cmake_minimum_required(VERSION 3.22)  # Minimum CMake version required
-project(NbaseKit VERSION 1.0.0)       # Define project name and version
+project(nbkit VERSION 1.0.0)       # Define project name and version
 
 #----------------------- C++ Standard Settings
 set(CMAKE_CXX_STANDARD 20)            # Use C++20 standard
@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED YES)  # Fail if c++20 not available
 set(CMAKE_CXX_EXTENSIONS OFF)         # Disable compiler-specific extensions
 
 #----------------------- Library Source Files
-file(GLOB_RECURSE SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/nbase_kit/*.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/nbase_kit/*.h")  # Collect all source files recursively
+file(GLOB_RECURSE SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/nbkit/*.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/nbkit/*.h")  # Collect all source files recursively
 add_library(${PROJECT_NAME} ${SOURCE_FILES})  # Create library from source files
 target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")  # Make headers available to consumers
 
@@ -41,12 +41,12 @@ set(CPACK_SOURCE_GENERATOR "TGZ")  # Generate TGZ archive for source package
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Nicolò Bertoli's base kit library")  # Package description
 set(CPACK_PACKAGE_VENDOR "Nicolò Bertoli")  # Package vendor
 set(CPACK_PACKAGE_CONTACT "nicobertoli.1999@gmail.com")  # Contact email
-set(CPACK_PACKAGE_HOMEPAGE_URL "https://github.com/nicobertoli/NbaseKit")  # Homepage URL
+set(CPACK_PACKAGE_HOMEPAGE_URL "https://github.com/nicobertoli/nbkit")  # Homepage URL
 set(CPACK_PACKAGE_LICENSE "MIT")  # License type
 set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}")  # Output package filename
 set(CPACK_OUTPUT_FILE_PREFIX "${CMAKE_SOURCE_DIR}/packages")  # Output directory for packages
 
 #----------------------- Installation Rules
-install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/nbase_kit" DESTINATION .)  # Install library headers and sources
+install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/nbkit" DESTINATION .)  # Install library headers and sources
 install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.txt" DESTINATION .)  # Install CMakeLists.txt for consumers
 include(CPack)  # Enable CPack package generation

@@ -4,7 +4,7 @@
 #include <cassert>
 
 //todo add test for this
-namespace nbase_kit
+namespace nbkit
 {
     namespace random_utils
     {

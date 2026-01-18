@@ -1,11 +1,11 @@
 #include <gtest/gtest.h>
-#include <nbase_kit/singleton.h>
+#include <nbkit/singleton.h>
 #include <vector>
 #include <string>
 #include <type_traits>
 
 template<typename T>
-using Singleton = nbase_kit::Singleton<T>;
+using Singleton = nbkit::Singleton<T>;
 
 //-------------------------------------------------------- classes
 

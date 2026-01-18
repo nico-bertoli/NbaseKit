@@ -2,7 +2,7 @@
 #include <vector>
 #include <iterator>
 
-namespace nbase_kit
+namespace nbkit
 {
     /// <summary>
     /// Implementation of a 2D vector using monodimensional vector for cache efficiency

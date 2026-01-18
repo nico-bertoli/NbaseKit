@@ -1,10 +1,10 @@
 #include <gtest/gtest.h>
-#include <nbase_kit/random_utils.h>
+#include <nbkit/random_utils.h>
 #include <cstdlib>
 #include <set>
 #include <algorithm>
 
-namespace random_utils = nbase_kit::random_utils;
+namespace random_utils = nbkit::random_utils;
 
 class RandomUtilsTest : public ::testing::Test
 {
