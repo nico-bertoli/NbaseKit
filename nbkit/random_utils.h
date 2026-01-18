@@ -3,7 +3,6 @@
 #include <cmath>
 #include <cassert>
 
-//todo add test for this
 namespace nbkit
 {
     namespace random_utils
